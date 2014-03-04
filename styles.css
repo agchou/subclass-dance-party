@@ -9,7 +9,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .addMovingDancerButton, .lineUp{
+.title, .addDancerButton, .addMovingDancerButton {
   padding:5px 12px;
   float:right;
 }
@@ -33,4 +33,9 @@ body, a:link, a:visited, a:active{
 .movingDancer img {
   width: 50%;
   height: auto;
+}
+
+.lineUpButton {
+  padding:5px 12px;
+  float:left;
 }
