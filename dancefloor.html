@@ -8,13 +8,21 @@
     <script src="src/blinkyDancer.js"></script>
     <script src="src/movingDancer.js"></script>
     <script src="src/helperFunctions.js"></script>
+    <script src="src/game.js"></script>
   </head>
   <body>
     <div class="topbar">
-      <span class="title">object dance party</span>
-      <a href="#" class="lineUpButton">Line up!</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
-      <a href="#" class="addMovingDancerButton" data-adancer-maker-function-name="MovingDancer">add a BreadCat</a>
+
+      <div class="pull-left">
+        <a href="#" class="startButton">Start!</a>
+      </div>
+
+      <div class="pull-right">
+        <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
+        <a href="#" class="addMovingDancerButton" data-adancer-maker-function-name="MovingDancer">add a BreadCat</a>
+        <a href="#" class="lineUpButton">Line up!</a>
+        <!-- <span class="title">object dance party</span> -->
+      </div>
     </div>
 
     <script src="src/init.js"></script>

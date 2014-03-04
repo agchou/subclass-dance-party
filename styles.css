@@ -1,17 +1,18 @@
 body, html{
+  width: 100%;
   height:100%;
 }
 body{
-  margin: 0px;
+  margin: 0;
   background-color:#444;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
+
 }
-.title, .addDancerButton, .addMovingDancerButton {
-  padding:5px 12px;
-  float:right;
+.topbar a {
+  padding: 5px 12px;
 }
 .topbar{
   height:32px;
@@ -28,14 +29,30 @@ body, a:link, a:visited, a:active{
 
 .movingDancer {
   position:absolute;
+  width: 300px;
+  height: 200px;
 }
 
 .movingDancer img {
-  width: 250px;
-  height: 140px;
+  padding-left:65px;
+  padding-top: 55px;
 }
 
-.lineUpButton {
-  padding:5px 12px;
+.pull-left {
   float:left;
+}
+
+.pull-right {
+  float:right;
+}
+
+.directions {
+  width: 300px;
+  height: 200px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -100px;
 }
