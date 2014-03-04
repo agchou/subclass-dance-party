@@ -31,8 +31,8 @@ body, a:link, a:visited, a:active{
 }
 
 .movingDancer img {
-  width: 50%;
-  height: auto;
+  width: 250px;
+  height: 140px;
 }
 
 .lineUpButton {

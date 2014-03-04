@@ -36,5 +36,27 @@ $(document).ready(function(){
     window.pageY = e.pageY;
   });
 
+  for (var i = 0; i < 1; ++i) {
+      $('.addMovingDancerButton').click();
+  }
+
+  $('.cat').on('click', function() {
+    $(this).remove()
+    alert('MEOW');
+  });
+
+  var width = $('body').width()-250;
+  var height = $('body').height()-150;
+
+  $('.movingDancer').each(function move() {
+    var top = (Math.random() * height);
+    var left = (Math.random() * width);
+    var time = Math.random() * (800 - 400) + 400;
+
+    $(this).animate({
+        left: left,
+        top: top
+    }, time, move);
+  });
 });
 
