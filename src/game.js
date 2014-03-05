@@ -1,7 +1,7 @@
 /* global $ */
 
-var GAME = false;
-var INSTRUCTED = false;
+var CATCOUNT = 3;
+var MUSIC = false;
 
 $(document).ready(function(){
   $('.startButton').on('click', function() {
@@ -11,44 +11,48 @@ $(document).ready(function(){
       'background-size': '20%, 20%'
     });
 
-    if (!MUSIC) {
-      MUSIC = true;
-      $('body').append('<embed name="lostmojo" src="assets/music.mp3" loop="false" hidden="true" autostart="true">');
+    $('.startButton').toggle();
+
+    if (MUSIC) {
+      $('.music').remove();
     }
+
+    $('body').append('<embed name="music" class="music" src="assets/music.mp3" loop="false" hidden="true" autostart="true">');
+    MUSIC = true;
 
     // Game start
     // Display directions
-    if (!INSTRUCTED) {
-      INSTRUCTED = true;
-      $('body').append('' +
-        '<div class="directions">' +
-          'Catch all the cats!' +
-        '</div>'
+    $('body').append('' +
+      '<div class="directions">' +
+        '<div>Catch all the cats!</div>' +
+      '</div>'
       );
-    }
     // Create target dancer
     setTimeout(function() {
       $('.directions').hide();
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < CATCOUNT; i++) {
         $('.addMovingDancerButton').click();
       }
-    }, 4500);
-
-    // Make cat run from mouse
-    $(function($) {
-      $('.movingDancer').mouseover(function() {
-        var dWidth = $('body').width() - 250, // 100 = image width
-            dHeight = $('body').height() - 100, // 100 = image height
-            nextX = Math.floor(Math.random() * dWidth),
-            nextY = Math.floor(Math.random() * dHeight);
-        $(this).animate({ left: nextX + 'px', top: nextY + 'px' });
+      // Make cat run from mouse
+      $(function($) {
+        $('.movingDancer').mouseover(function() {
+          var dWidth = $('body').width() - 250, // 100 = image width
+              dHeight = $('body').height() - 100, // 100 = image height
+              nextX = Math.floor(Math.random() * dWidth),
+              nextY = Math.floor(Math.random() * dHeight);
+          $(this).animate({ left: nextX + 'px', top: nextY + 'px' });
+        });
       });
-    });
 
-    // Winning condition
-    $('.cat').on('click', function() {
-      $(this).remove();
-      alert('MEOW');
-    });
+      // Run on
+      $('.cat').on('click', function() {
+        $(this).remove();
+        if (--CATCOUNT === 0) {
+          alert('YOU WIN!');
+          CATCOUNT = 3;
+          $('.startButton').toggle();
+        }
+      });
+    }, 4100);
   });
 });
